@@ -7,13 +7,13 @@ import os
 
 class InjaConan(ConanFile):
     name = "inja"
-    version = "1.0.0"
-    url = "https://github.com/DEGoodmanWilson/conan-inja"
-    description = "A C++ library for handling JWT tokens"
+    version = "2.1.0"
+    url = "https://github.com/yasamoka/conan-inja"
+    description = "Template engine for modern C++, loosely inspired by jinja for Python"
     license = "https://github.com/pantor/inja/blob/master/LICENSE"
     no_copy_source = True
     build_policy = "always"
-    requires = "jsonformoderncpp/[~= 3.1]@vthiery/stable"
+    requires = "jsonformoderncpp/3.7.3@vthiery/stable"
 
     def source(self):
         source_url = "https://github.com/pantor/inja"
@@ -27,4 +27,4 @@ class InjaConan(ConanFile):
 
     def package(self):
         self.copy(pattern="LICENSE")
-        self.copy(pattern="*.[i|h]pp", dst="include/inja", src="sources/src", keep_path=True)
+        self.copy(pattern="*.[i|h]pp", dst="include/inja", src="sources/include/inja", keep_path=True)
